@@ -1,0 +1,179 @@
+﻿<div class=row>
+                               
+                                    <div class="panel panel-default">
+                                        <div class=panel-heading>
+                                            <h5 class=panel-title>Purchase Orders</h5>
+                                        </div>
+                                        <div class=panel-body>
+                                            <div class=row>
+                                                <form method=post id=PurchaseOrderForm>
+                                                    <input hidden type=number data-val=true data-val-required="The PurchaseOrderID field is required." id=PurchaseOrder_PurchaseOrderID name=PurchaseOrder.PurchaseOrderID>
+                                                    <div class=col-md-3>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Storage Location</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" required data-val=true data-val-required="The StorageLocationID field is required." id=PurchaseOrder_StorageLocationID name=PurchaseOrder.StorageLocationID>
+                                    <option></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Supplier</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" required data-val=true data-val-required="The SupplierID field is required." id=PurchaseOrder_SupplierID name=PurchaseOrder.SupplierID>
+                                    <option></option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Alias</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=PurchaseOrder_Alias name=PurchaseOrder.Alias>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Order Reference</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=PurchaseOrder_OrderReference name=PurchaseOrder.OrderReference>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-md-3>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Valid Before</small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" required data-val=true data-val-required="The ValidityDate field is required." id=PurchaseOrder_ValidityDate name=PurchaseOrder.ValidityDate>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>DateTime Issued</small>
+                                                            </label>
+                                                            <input type=datetime-local step=1 class="form-control input-sm" data-val=true data-val-required="The DateTimeIssued field is required." id=PurchaseOrder_DateTimeIssued name=PurchaseOrder.DateTimeIssued>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>DateTime Created</small>
+                                                            </label>
+                                                            <input type=datetime-local step=1 class="form-control input-sm" data-val=true data-val-required="The DateTimeCreated field is required." id=PurchaseOrder_DateTimeCreated name=PurchaseOrder.DateTimeCreated>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-md-3>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Terms &Conditions</small>
+                                                            </label>
+                                                            <textarea class="form-control input-sm" id=PurchaseOrder_TermsAndConditions name=PurchaseOrder.TermsAndConditions></textarea>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>
+                                                                    Purchase Order No: <span id=PurchaseOrderID class=text-info></span>
+                                                                </small>
+                                                            </label>
+                                                            <br>
+                                                            <label>
+                                                                <small>
+                                                                    Is Committed To Stock: <span id=CommittedToStock class=text-info></span>
+                                                                </small>
+                                                            </label>
+                                                            <br>
+                                                            <label>
+                                                                <small>
+                                                                    Prepared By: <span id=PreparedBy class=text-info></span>
+                                                                </small>
+                                                            </label>
+                                                            <br>
+                                                            <label hidden>
+                                                                <small>
+                                                                    Checked By: <span id=CheckedBy class=text-info></span>
+                                                                </small>
+                                                            </label>
+                                                        </div>
+                                                        <div id=updateorder hidden>
+                                                            <div class="btn-group pull-right">
+                                                                <button id=btnupdateorder class="btn btn-primary btn-xs ladda-button" data-style=expand-right data-size=s>Update</button>
+                                                                <a id=btnCreateNewOrder class="btn btn-primary btn-xs">New</a>
+                                                            </div>
+                                                        </div>
+                                                        <div id=addorder>
+                                                            <button id=btnaddorder class="btn btn-primary btn-xs pull-right ladda-button" data-style=expand-right data-size=s>Save</button>
+                                                        </div>
+                                                    </div>
+                                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8It5D1qqI4lBjCCzFnB6CepemqKfYrG-LIyq-VK9s49J1SnEEhwn-kVHHSMr7f-MmhJB85ZdXo2ZnFbx7yvCgWxiZmqPG4vP2TYIptcQlRtXXfzg4xKSm8oaMWPJILFS9ref9aeU517K-DsIWag8d_-v3x5oQsaXu7Iisqv1pSyIhNg7HUjk_e7jHff1qP5p1A>
+                                                </form>
+                                                <div class=col-md-3>
+                                                    <div class="btn-group-vertical btn-group-sm pull-right">
+                                                        <button class="btn btn-default" id=btnMainViewReport>Purchase Order Report</button>
+                                                        <button class="btn btn-default" id=btnMainViewReportWP>Purchase Order Report W/O Prices</button>
+                                                        <button class="btn btn-default" id=btnViewPurchaseOrderItems>Purchase Order Items</button>
+                                                        <button class="btn btn-primary">Mark as Received</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=panel-heading>
+                                            <h5 class=panel-title>View: Purchase Order</h5>
+                                        </div>
+                                        <div class=table-responsive id=no-more-tables style="min-height: 48vh">
+                                            <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=purchaseorderstable>
+                                                <thead class=cf>
+                                                    <tr>
+                                                        <th>
+                                                            <strong>LPO No</strong>
+                                                        <th>
+                                                            <strong>Supplier</strong>
+                                                        <th>
+                                                            <strong>Alias</strong>
+                                                        <th>
+                                                            <strong>Created On</strong>
+                                                        <th>
+                                                            <strong>Checked By</strong>
+                                                        <th>
+                                                            <strong>Approved By</strong>
+                                                        <th>
+                                                            <strong>Authorized By</strong>
+                                                        <th>
+                                                            <strong>Net Amount</strong>
+                                                            <tbody>
+                                            </table>
+                                        </div>
+                                        <div class=panel-footer>
+                                            <div class="row no-gutter">
+                                                <div class=col-md-9>
+                                                    <form class=form-inline method=post id=FilterForm>
+                                                        <div class=form-group>
+                                                            <label for=view>
+                                                                <small>View: </small>
+                                                            </label>
+                                                            <select class="form-control input-sm" id=filterPurchaseOrder>
+                                                                <option value=1>Pending</option>
+                                    <option value=2>Received</option>
+                                    <option value=3>Checked</option>
+                                    <option value=4>Approved</option>
+                                    <option value=5>Authorized</option>
+                                    <option value=6>Cancelled</option>
+                                    <option value=7>All</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=from>
+                                                                <small>Between </small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" id=from>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=to>
+                                                                <small>And </small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" id=to>
+                                                        </div>
+                                                        <button class="btn btn-info btn-xs ladda-button" id=btnViewFilters data-style=expand-right data-size=s>View</button>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8It5D1qqI4lBjCCzFnB6CepemqKfYrG-LIyq-VK9s49J1SnEEhwn-kVHHSMr7f-MmhJB85ZdXo2ZnFbx7yvCgWxiZmqPG4vP2TYIptcQlRtXXfzg4xKSm8oaMWPJILFS9ref9aeU517K-DsIWag8d_-v3x5oQsaXu7Iisqv1pSyIhNg7HUjk_e7jHff1qP5p1A>
+                                                    </form>
+                                                </div>
+                                                <div class=col-md-3></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>

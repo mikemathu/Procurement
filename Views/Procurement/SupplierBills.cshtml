@@ -1,0 +1,215 @@
+﻿<div class=row>
+                                    <div class="panel panel-default">
+                                        <div class=panel-heading>
+                                            <h5 class=panel-title>Supplier Bill Details</h5>
+                                        </div>
+                                        <div class=panel-body>
+                                            <div class=row>
+                                                <div class="col-sm-7 content-left">
+                                                    <div class=row>
+                                                        <form method=post id=SupplierBillForm>
+                                                            <div class=col-sm-6>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Supplier</small>
+                                                                    </label>
+                                                                    <select class="form-control input-sm select-supplier" style=width:100% id=SupplierID required></select>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Alias</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" id=Alias>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Description</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" id=Description required>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Reference</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" id=Reference required>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>A/P Invoice No</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" id=APInvoiceNo required>
+                                                                </div>
+                                                            </div>
+                                                            <div class=col-sm-6>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Terms</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" id=Terms required>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>DateTime Created</small>
+                                                                    </label>
+                                                                    <input type=datetime-local step=1 class="form-control input-sm" id=DateTimeCreated required>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Due Date</small>
+                                                                    </label>
+                                                                    <input type=date class="form-control input-sm" id=DueDate required>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>
+                                                                            Supplier Bill No: <span class=text-info id=txtSupplierID></span>
+                                                                        </small>
+                                                                    </label>
+                                                                    <br>
+                                                                    <label>
+                                                                        <small>
+                                                                            Date Created: <span class=text-info id=txtDateCreated></span>
+                                                                        </small>
+                                                                    </label>
+                                                                </div>
+                                                                <div id=updatebill hidden>
+                                                                    <div class="btn-group pull-right">
+                                                                        <button id=btnupdatebill class="btn btn-primary btn-xs ladda-button" data-style=expand-right data-size=s>Update</button>
+                                                                        <a id=btnCreateNewBill class="btn btn-primary btn-xs">New</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id=addbill>
+                                                                    <button id=btnaddbill class="btn btn-primary btn-xs pull-right ladda-button" data-style=expand-right data-size=s>Save</button>
+                                                                </div>
+                                                            </div>
+                                                            <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tUSITjiLDwpb1jeK5sVCt5Zrh4UE_iPp8HsjIHDF0yzV0YhfvgIbe89924xxGl-FY7S8pnpUhTMh3YCwZMyaWHrkwpfWPZfil4YaY-5xRZuX-lb2fH550y6h9gcYqA-1n-G0UzXQuZnbsqZEn42gZ3zgDXtvLo4tM23HQDubSFq_g>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class=col-sm-2>
+                                                    <div class="row text-center">
+                                                        <div class="btn-group-vertical btn-group-sm">
+                                                            <button class="btn btn-primary" id=btnSupplierBillItems>Supplier Bill Items</button>
+                                                            <button class="btn btn-primary" id=btnCreditNotes>Credit Notes</button>
+                                                            <button class="btn btn-default" id=btnAPInvoicePayments>View Invoice Payments</button>
+                                                            <button class="btn btn-default" id=btnAPInvoiceReport>View Invoice Report</button>
+                                                            <button class="btn btn-success ladda-button" id=btnCreatePayVoucher data-style=expand-right data-size=s>Create Payment Voucher</button>
+                                                            <a target=_blank class="btn btn-default" href=/Procurement/PaymentVouchers>View Payment Vouchers</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class=col-sm-3>
+                                                    <fieldset style="padding:0 !important" class=scheduler-border>
+                                                        <legend class=scheduler-border>
+                                                            <strong>
+                                                                <small>Supply Bill Payment</small>
+                                                            </strong>
+                                                        </legend>
+                                                        <table class="table table-condensed table-borderless table-responsive compact">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td colspan=2>
+                                                                        <div class=checkbox>
+                                                                            <label>
+                                                                                <input type=checkbox id=isPartialPayment>Is Partial Payment 
+                                                                            </label>
+                                                                        </div>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <strong>Selected Total: </strong>
+                                                                            <td>
+                                                                                <span class=text-info id=netAmount>0.00</span>
+                                                                                <tr>
+                                                                                    <td colspan=2>
+                                                                                        <payment-mode data-id=PaymentModeID></payment-mode>
+                                                                                        <div class=form-group>
+                                                                                            <span id=helpBlock2 class=help-block>
+                                                                                                Balance: <span class=text-info id=accBalance></span>
+                                                                                            </span>
+                                                                                        </div>
+                                                                                        <tr>
+                                                                                            <td colspan=2>
+                                                                                                <button class="btn btn-primary btn-xs pull-right" id=btnPaybill>Pay Bill</button>
+                                                        </table>
+                                                    </fieldset>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class=panel-heading>
+                                            <h5 class=panel-title>View: Supplier Bills</h5>
+                                        </div>
+                                        <div class=table-responsive id=no-more-tables style="min-height:48vh">
+                                            <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=supplierbillstable>
+                                                <thead class=cf>
+                                                    <tr>
+                                                        <th>
+                                                            <input class=selectAll name=select_all value=1 type=checkbox>
+                                                            <th>
+                                                                <strong>Bill No</strong>
+                                                            <th>
+                                                                <strong>AP Inv No</strong>
+                                                            <th>
+                                                                <strong>Supplier</strong>
+                                                            <th>
+                                                                <strong>Alias</strong>
+                                                            <th>
+                                                                <strong>Created On</strong>
+                                                            <th>
+                                                                <strong>Net Amount</strong>
+                                                            <th>
+                                                                <strong>Credit Note</strong>
+                                                            <th>
+                                                                <strong>Amount Paid</strong>
+                                                            <th>
+                                                                <strong>Balance</strong>
+                                                            <th>
+                                                                <strong>Approved Payment</strong>
+                                                            <th>
+                                                                <tbody>
+                                            </table>
+                                        </div>
+                                        <div class=panel-footer>
+                                            <div class="row no-gutter">
+                                                <div class=col-md-12>
+                                                    <form class=form-inline method=post id=FilterBillsForm>
+                                                        <div class=form-group>
+                                                            <label for=view>
+                                                                <small>View</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" id=view>
+                                                                <option value=1>All</option>
+                                    <option value=2 selected>Pending</option>
+                                    <option value=4>Approved Unsettled</option>
+                                    <option value=3>Settled</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=fsupplierid>
+                                                                <small>Supplier</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" id=fsupplierid>
+                                    <option value=0>--All Invoices--</option>
+                                    <option value=-1>--Consultant Bills Only--</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=dateFrom>
+                                                                <small>Between</small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" id=dateFrom>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=dateTo>
+                                                                <small>And</small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" id=dateTo>
+                                                        </div>
+                                                        <button class="btn btn-info btn-xs">View</button>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8K8elgsLS7hMlHQKPXte6tUSITjiLDwpb1jeK5sVCt5Zrh4UE_iPp8HsjIHDF0yzV0YhfvgIbe89924xxGl-FY7S8pnpUhTMh3YCwZMyaWHrkwpfWPZfil4YaY-5xRZuX-lb2fH550y6h9gcYqA-1n-G0UzXQuZnbsqZEn42gZ3zgDXtvLo4tM23HQDubSFq_g>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>

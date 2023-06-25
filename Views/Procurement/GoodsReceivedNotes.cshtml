@@ -1,0 +1,178 @@
+﻿<div class=row>
+                                    <div class="panel panel-default">
+                                        <div class=panel-body>
+                                            <div class=row>
+                                                <div class=col-sm-6>
+                                                    <fieldset class=scheduler-border>
+                                                        <legend class=scheduler-border>
+                                                            <small>GRN Details</small>
+                                                        </legend>
+                                                        <form method=post id=GRNForm>
+                                                            <input hidden type=number data-val=true data-val-required="The PurchaseOrderID field is required." id=Grn_PurchaseOrderID name=Grn.PurchaseOrderID>
+                                                            <div class=col-md-6>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>GRN No</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" readonly type=number data-val=true data-val-required="The GRNID field is required." id=Grn_GRNID name=Grn.GRNID>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>A/P Invoice No</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" id=Grn_APInvoiceNo name=Grn.APInvoiceNo>
+                                                                </div>
+                                                            </div>
+                                                            <div class=col-md-6>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Delivery Note No.</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" required id=Grn_DeliveryNoteNo name=Grn.DeliveryNoteNo>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Date Time Received</small>
+                                                                    </label>
+                                                                    <input type=datetime-local step=1 class="form-control input-sm" required data-val=true data-val-required="The DateTimeReceived field is required." id=Grn_DateTimeReceived name=Grn.DateTimeReceived>
+                                                                </div>
+                                                                <div id=updategrn hidden>
+                                                                    <div class="btn-group pull-right">
+                                                                        <button id=btnupdategrn class="btn btn-primary btn-sm ladda-button" data-style=expand-right data-size=s>Update</button>
+                                                                    </div>
+                                                                </div>
+                                                                <div id=addgrn hidden>
+                                                                    <button id=btnaddgrn class="btn btn-primary btn-sm pull-right ladda-button" data-style=expand-right data-size=s>Save</button>
+                                                                </div>
+                                                            </div>
+                                                            <input name=__RequestVerificationToken type=hidden value=CfDJ8It5D1qqI4lBjCCzFnB6CerxroYq3-2VtNtGsQWvRnr7PLNRYvWhrnmb7Mvwn9U7GpinuCiASqtIggmKGokTn4QGMu-BSqGEW3_8QBTT4ecXPvmDlvD2IzOC-t9zZZlDXJiBj0oPTqRs8GdJScMDdUmwnu8JqqLMkXmQf-0asBGZn33KyJNMWgwwACDX7aK4UQ>
+                                                        </form>
+                                                    </fieldset>
+                                                </div>
+                                                <div class=col-sm-4>
+                                                    <fieldset class=scheduler-border>
+                                                        <legend class=scheduler-border>
+                                                            <small>Purchase Order Details</small>
+                                                        </legend>
+                                                        <div class="row no-gutter">
+                                                            <div class=col-sm-4>
+                                                                <label>
+                                                                    <small>Order No: </small>
+                                                                </label>
+                                                            </div>
+                                                            <div class=col-sm-8>
+                                                                <small>
+                                                                    <span class="text-info orderNo"></span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row no-gutter">
+                                                            <div class=col-sm-4>
+                                                                <label>
+                                                                    <small>Location: </small>
+                                                                </label>
+                                                            </div>
+                                                            <div class=col-sm-8>
+                                                                <small>
+                                                                    <span class="text-info stoloc"></span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row no-gutter">
+                                                            <div class=col-sm-4>
+                                                                <label>
+                                                                    <small>Supplier: </small>
+                                                                </label>
+                                                            </div>
+                                                            <div class=col-sm-8>
+                                                                <small>
+                                                                    <span class="text-info supplier"></span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row no-gutter">
+                                                            <div class=col-sm-4>
+                                                                <label>
+                                                                    <small>Order ref: </small>
+                                                                </label>
+                                                            </div>
+                                                            <div class=col-sm-8>
+                                                                <small>
+                                                                    <span class="text-info ref"></span>
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                                <div class=col-sm-2>
+                                                    <div class="btn-group-vertical btn-group-sm pull-right">
+                                                        <button class="btn btn-default create">Create GRN</button>
+                                                        <button class="btn btn-default cancel" style=display:none>Cancel</button>
+                                                        <button class="btn btn-default" disabled>
+                                                            <i class="glyphicon glyphicon-option-vertical"></i>
+                                                        </button>
+                                                        <button class="btn btn-default" id=btnViewGrnItems>GRN Items</button>
+                                                        <button class="btn btn-default" id=btnViewGRN>View Report</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=panel-heading>
+                                            <h6 class="panel-title input-sm">View: GRNs</h6>
+                                        </div>
+                                        <div class=panel-body>
+                                            <div class=row>
+                <div class=table-responsive id=no-more-tables style="min-height: 48vh">
+                                                    <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=grnstable>
+                                                        <thead class=cf>
+                                                            <tr>
+                                                                <th>
+                                                                    <strong>GRN Number</strong>
+                                                                <th>
+                                                                    <strong>Supplier</strong>
+                                                                <th>
+                                                                    <strong>P/O Number</strong>
+                                                                <th>
+                                                                    <strong>Delivery Note Number</strong>
+                                                                <th>
+                                                                    <strong>A/P Invoice Number</strong>
+                                                                <th>
+                                                                    <strong>Total Net Amount</strong>
+                                                                    <tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=panel-footer>
+                                            <div class="row no-gutter">
+                                                <div class=col-md-12>
+                                                    <form class=form-inline id=FilterGRNItemsForm>
+                                                        <div class=form-group>
+                                                            <label for=view>
+                                                                <small>View</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" id=filterGrnView>
+                                                                <option value=1>Pending</option>
+                                                                <option value=2>Received</option>
+                                                                <option value=3>All</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=from>
+                                                                <small>Between </small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" id=from>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=to>
+                                                                <small>And </small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" id=to>
+                                                        </div>
+                                                        <button class="btn btn-info btn-sm ladda-button" id=btnViewFilters data-style=expand-right data-size=s>View</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>

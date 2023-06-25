@@ -1,0 +1,128 @@
+﻿<div class=row>
+                             
+                                    <div class="panel panel-default">
+                                        <div class=panel-heading>
+                                            <h6 class=panel-title>Payment Vouchers</h6>
+                                        </div>
+                                        <div class=panel-body>
+                                            <div class=row>
+                                                <div class=col-md-9>
+                                                    <div class=row>
+                                                        <div class=col-md-12>
+                                                            <form class=form-inline method=post id=FilterForm>
+                                                                <div class=form-group>
+                                                                    <label for=flag>
+                                                                        <small>View: </small>
+                                                                    </label>
+                                                                    <select class="form-control input-sm" id=flag>
+                                                                        <option value=1>Pending</option>
+                                        <option value=2>Approved</option>
+                                        <option value=3>Cancelled</option>
+                                        <option value=4>Rejected</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label for=dateFrom>
+                                                                        <small>Between </small>
+                                                                    </label>
+                                                                    <input type=date class="form-control input-sm" id=dateFrom>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label for=dateTo>
+                                                                        <small>And </small>
+                                                                    </label>
+                                                                    <input type=date class="form-control input-sm" id=dateTo>
+                                                                </div>
+                                                                <button class="btn btn-info btn-xs ladda-button" id=btnViewFilters data-style=expand-right data-size=s>View</button>
+                                                                <input name=__RequestVerificationToken type=hidden value=CfDJ8It5D1qqI4lBjCCzFnB6CepUgDWJ0yVNEXQomIeLxwxEhYK5Sy25BE8QDY1XHUI9GlWE72zxsBDFy7J1cO9NjqpQ4QG9vDhrlKcw72ZAdi3xgcYh7v7lOW-odsPvIhBz1M5xO6yD9LS4MTC3S22XC8QK8FsyLlt-V7bNhKnf-KyQfuCdLzv3_Cea79h8mdcYcA>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class=table-responsive id=no-more-tables>
+                                                        <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=paymentvoucherstable>
+                                                            <thead class=cf>
+                                                                <tr>
+                                                                    <th>
+                                                                        <strong>Voucher ID</strong>
+                                                                    <th>
+                                                                        <strong>Created By</strong>
+                                                                    <th>
+                                                                        <strong>Date Time Created</strong>
+                                                                    <th>
+                                                                        <strong>Status</strong>
+                                                                    <th>
+                                                                        <strong>Date Time Approved</strong>
+                                                                        <tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                                <div class=col-md-3>
+                                                    <div class=row>
+                                                        <div class=col-md-12>
+                                                            <h5>
+                                                                <strong>Payment Voucher ID: </strong>
+                                                                <span class=text-info id=voucherID></span>
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class=row>
+                                                        <div class=col-md-12>
+                                                            <h5>
+                                                                <strong>Status: </strong>
+                                                                <span class=text-info id=voucherStatus></span>
+                                                            </h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row text-center">
+                                                        <div class=btn-group-vertical>
+                                                            <button class="btn btn-default btn-sm" id=btnApprove>Approve Payment Voucher</button>
+                                                            <button class="btn btn-default btn-sm" id=btnReject>Reject Payment Voucher</button>
+                                                            <button class="btn btn-default btn-sm" id=btnCancel>Cancel Payment Voucher</button>
+                                                            <button class="btn btn-default btn-sm" id=btnUndoApproval>Undo Approaval</button>
+                                                            <button class="btn btn-default btn-sm" id=btnViewPaymentVoucher>View Payment Voucher</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=panel-heading>
+                                            <h6 class=panel-title>
+                                                Payment Voucher Items (Voucher No: <span class=text-info id=txtVoucherNo></span>
+                                                )
+                                            </h6>
+                                        </div>
+                                        <div class=panel-body>
+                                            <div class=row>
+                                                <div class=col-md-12>
+                                                    <div class=table-responsive id=no-more-tables style="min-height: 48vh">
+                                                        <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=paymentvoucheritemstable>
+                                                            <thead class=cf>
+                                                                <tr>
+                                                                    <th>
+                                                                        <input class=selectAll name=select_all value=1 type=checkbox>
+                                                                        <th>
+                                                                            <strong>Inv No</strong>
+                                                                        <th>
+                                                                            <strong>Supplier</strong>
+                                                                        <th>
+                                                                            <strong>Alias</strong>
+                                                                        <th>
+                                                                            <strong>Date</strong>
+                                                                        <th>
+                                                                            <strong>Balance</strong>
+                                                                        <th>
+                                                                            <strong>Approved Amount </strong>
+                                                                            <small>
+                                                                                <span class=text-info>click to edit</span>
+                                                                            </small>
+                                                                        <th>
+                                                                            <strong>Approval Status</strong>
+                                                                        <th>
+                                                                            <tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>

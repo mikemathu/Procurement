@@ -1,0 +1,175 @@
+﻿
+                      
+                       
+                            <div class=row>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading clearfix">
+                                            <h5 class=panel-title>
+                                                Supplier Details
+                                                <div class="btn-group pull-right">
+                                                    <button class="btn btn-info btn-xs dropdown-toggle" type=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>
+                                                        Actions <span class=caret></span>
+                                                    </button>
+                                                    <ul class=dropdown-menu>
+                                                        <li>
+                                                            <a href=javascript:OptActivateSupplier()>Activate Supplier</a>
+                                                        <li>
+                                                            <a href=javascript:OptDeactivateSupplier()>Deactivate Supplier</a>
+                                                        <li>
+                                                            <a href=javascript:OptDeleteSupplier()>
+                                                                <span class=text-danger>Delete Supplier</span>
+                                                            </a>
+                                                        <li role=separator class=divider>
+                                                        <li>
+                                                            <a href=# data-toggle=modal data-target=.import-suppliers-modal>Import Suppliers</a>
+                                                    </ul>
+                                                </div>
+                                            </h5>
+                                        </div>
+                                        <div class=panel-body>
+                                            <form method=post id=SupplierForm>
+                                                <input hidden type=number data-val=true data-val-required="The SupplierID field is required." id=SupplierID name=SupplierID>
+                                                <input hidden type=number data-val=true data-val-required="The APSubAccountID field is required." id=APSubAccountID name=APSubAccountID>
+                                                <div class=row>
+                                                    <div class=col-sm-4>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Supplier Name</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" required data-val=true data-val-required="The Name field is required." id=Name name=Name>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Description</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=Description name=Description>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Contact Person</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" required data-val=true data-val-required="The ContactPerson field is required." id=ContactPerson name=ContactPerson>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Physical Address</small>
+                                                            </label>
+                                                            <textarea class="form-control input-sm" id=PhysicalAddress name=PhysicalAddress></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-sm-4>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Postal Address</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=PostalAddress name=PostalAddress>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Postal Code</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=PostalCode name=PostalCode>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label class=control-label>
+                                                                <small>Country</small>
+                                                            </label>
+                                                            <div class=input-group>
+                                                                <select class="form-control select-nationality" style=width:100% required data-val=true data-val-required="The NationalityID field is required." id=NationalityID name=NationalityID>
+                                                                    <option value=0></option>
+                                                                </select>
+                                                                <span class=input-group-btn>
+                                                                    <a title="Add a nationality" class="btn btn-link btn-sm" data-toggle=modal data-target=.add-nationality-modal>
+                                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label class=control-label>
+                                                                <small>Town/City</small>
+                                                            </label>
+                                                            <div class=input-group>
+                                                                <select class="form-control select-town" style=width:100% required data-val=true data-val-required="The TownID field is required." id=TownID name=TownID>
+                                                                    <option value=0></option>>
+                                                                </select>
+                                                                <span class=input-group-btn>
+                                                                    <a title="Add a town/city" class="btn btn-link btn-sm" data-toggle=modal data-target=.add-town-modal>
+                                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                                    </a>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-sm-4>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Telephone 1</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" required data-val=true data-val-required="The Telephone1 field is required." id=Telephone1 name=Telephone1>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Telephone 2</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=Telephone2 name=Telephone2>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Email</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=EmailAddress name=EmailAddress>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Website</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=WebAddress name=WebAddress>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Sub Account</small>
+                                                            </label>
+                                                            <input id=SubAccount class="form-control input-sm" readonly>
+                                                        </div>
+                                                        <div id=updatesupplier hidden>
+                                                            <div class="btn-group btn-group-xs pull-right">
+                                                                <button id=btnupdatesupplier class="btn btn-primary ladda-button" data-style=expand-right data-size=s>Update</button>
+                                                                <a id=btnCreateNewSupplier class="btn btn-primary">New</a>
+                                                            </div>
+                                                        </div>
+                                                        <div id=addsupplier>
+                                                            <button id=btnaddsupplier class="btn btn-primary btn-xs pull-right ladda-button" data-style=expand-right data-size=s>
+                                                                <span class="glyphicon glyphicon-plus"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <input name=__RequestVerificationToken type=hidden value=CfDJ8It5D1qqI4lBjCCzFnB6CerjpLva1bJ21wr-Dd93i9JxlSXoXfsv3Yj00R4JryuCFY6l79tS5aF90TTQrgy3d_owpOdOppK38Ml7dXQlHboolsBXfzheBbvcUpGVn2O0GnDICx5_PYIh9vPev_WhwReSHGQ5Nt3vdP2Jps9Fxs6hmRGqFSIsLU9pwVo7pc4cCw>
+                                            </form>
+                                        </div>
+                                        <div class=panel-heading>
+                                            <h6 class=panel-title>View: Supplier(s)</h6>
+                                        </div>
+                                        <div class=table-responsive id=no-more-tables style="min-height: 40vh;">
+                                            <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=supplierstable>
+                                                <thead class=cf>
+                                                    <tr>
+                                                        <th>
+                                                            <strong>Supplier No</strong>
+                                                        <th>
+                                                            <strong>Supplier Name</strong>
+                                                        <th>
+                                                            <strong>Telephone</strong>
+                                                        <th>
+                                                            <strong>Email</strong>
+                                                        <th>
+                                                            <strong>Contact Person</strong>
+                                                            <tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                            </div>
+
+@await Html.PartialAsync("./PartialViews/_AddTown")
+@await Html.PartialAsync("./PartialViews/_ReportAccess")

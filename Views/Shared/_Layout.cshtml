@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <meta name=viewport content="width=device-width, initial-scale=1.0">
+    <meta name=description content="Integrated HealthCare Management Information System By Hanmak Technologies Limited.">
+    <meta name=keywords content="HMIS,heathcare,hospital system,cloud hmis,medicentre,healthcare system,hospital management system,HIMS">
+    <title>MedicentreV3 | Inventory</title>
+    <link rel="shortcut icon" type=image/x-icon href="/favicon.ico?v=uIheJj4_jG2_IegLvBAhj6Rsmi0vVavzZQehKEJByxQ" defer async>
+    <link rel=preload href="~/css/site.min.css?v=j6ExleZLhlkHO7BJI4dfYesLDSss3AwV6PHMFVPXQiw" as=style>
+    <link rel=stylesheet href="~/css/site.css">
+    <link rel=preload href="~/lib/jquery/dist/jquery.min.js?v=CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo" as=script>
+    <link rel=preload href="~/js/signalr/signalr.min.js?v=aNSbXaEA6wcVsUTxsuF1mI-mKauMNEMkhXShRZaQMnE" as=script>
+    <link rel=preload href="~/js/main.min.js?v=FGdNIVyQp87KxSZVvrK9dunmd0HJo5hCDmHZAX_FxeE" as=script>
+    <link rel=preload href="~/css/assets.min.css?v=pC99z4nR8ke9vhJ9o1QGU1oJz2MSCaHTJvXg3_QP3Sc" as=style>
+    <link rel="stylesheet" href="~/plugins/fontawesome-free/css/all.min.css">
+    <style>
+
+    </style>
+    <script>
+        var UserRoomID = 0;
+        var UserRoomStatus = 0;
+        var RoomID = 0;
+        const AppVersion = "3.8.6";
+        const CompanyBranchID = 1;
+        const SystemUserID = 24952;
+        const IsCashier = 'True' === 'True';
+        const User = 'tuser2';
+        const schema = 'mOTWKsjsWG2RP0SkZB3wnA%3D%3D';
+        var __DontToggle__ = false;
+        var EnterSubmitsFormsOnThisPage = false;
+        document.documentElement.setAttribute('data-theme', 'root');
+        document.documentElement.style.setProperty('--font-size', '13px');
+        document.documentElement.style.setProperty('--font', 'Poppins');
+        function IsMobile() {
+            return /\b(iPhone|iP[ao]d)/.test(navigator.userAgent) || /\b(iP[ao]d)/.test(navigator.userAgent) || /Android/i.test(navigator.userAgent) || /Mobile/i.test(navigator.userAgent);
+        }
+    </script>
+    <script>
+        UserRoomID = 15427;
+        UserRoomStatus = 1;
+        RoomID = 23;
+    </script>
+    <link rel=stylesheet href="/css/site.min.css?v=j6ExleZLhlkHO7BJI4dfYesLDSss3AwV6PHMFVPXQiw">
+    <script>
+        Date.prototype.toLocalISOString = function () {
+            return new Date(this.getTime() - (this.getTimezoneOffset() * 60000)).toISOString();
+        }
+        document.documentElement.style.setProperty('--font-size', '13px');
+    </script>
+    <meta name=theme-color content=#2a2e2e>
+    <link rel=manifest href=/manifest.webmanifest>
+</head>
+<body id=body>
+    <div id=wrapper>
+        <header>
+            <nav class="navbar navbar-inverse navbar-fixed-top" role=navigation>
+                <div class=navbar-header>
+                    <button type=button class=navbar-toggle data-toggle=collapse data-target=.navbar-ex1-collapse>
+                        <span class=sr-only>Toggle navigation</span>
+                        <span class=icon-bar></span>
+                        <span class=icon-bar></span>
+                        <span class=icon-bar></span>
+                    </button>
+                    <a class=navbar-brand href="/">
+                        <div class=navbar-text>MedicentreV3</div>
+                    </a>
+                </div>
+                <div id=loader class=cs-loader>
+                    <div class=cs-loader-inner>
+                        <label>●</label>
+                        <label>●</label>
+                        <label>●</label>
+                        <label>●</label>
+                        <label>●</label>
+                        <label>●</label>
+                    </div>
+                </div>
+                <ul class="nav navbar-right top-nav">
+                    <li>
+                        <a title="Dictate Notes" href=# id=toggleStt>
+                            <i id=toggleSttIcon class=fas></i>
+                        </a>
+                    <li>
+                        <a href=# id=notificationLink title=Notifications>
+                            <span class="fas fa-bell"></span>
+                            <span id=nCounter class=badge></span>
+                        </a>
+                        <div id=notificationContainer>
+                            <div id=notificationTitle>Notifications</div>
+                            <div id=notificationsBody class=notifications>
+                                <div class=list-group id=notificationContent style="height:300px !important"></div>
+                            </div>
+                            <div id=notificationFooter>
+                                <a href=# id=btnMoreNotifications>See More</a>
+                            </div>
+                        </div>
+                    <li>
+                        <a href=# data-toggle=modal data-target=.feedback-hub-modal title="Provide your feedback">
+                            <span class="fas fa-comments"></span>
+                        </a>
+                    <li class=dropdown>
+                        <a href=# class=dropdown-toggle data-toggle=dropdown title="User: tuser2">
+                            <span class="glyphicon glyphicon-user"></span>
+                            <span class="fa fa-angle-down"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-nav">
+                            <li class=dropdown-header>
+                                <span style=font-size:medium>
+                                    <i class="far fa-user-circle"></i>
+                                    tuser2
+                                </span>
+                            <li role=separator class=divider>
+                            <li>
+                                <a href=# data-toggle=modal data-target=.begin-cashier-shift-modal>Begin Cashier Shift</a>
+                            <li>
+                                <a href=# id=btnDashboard>Exec Dashboard</a>
+                            <li>
+                                <a href=# data-toggle=modal data-target=.portal-access-code-modal>Employee Portal</a>
+                            <li>
+                                <a href=# data-toggle=modal data-target=.signin-to-room-modal>Sign In/Out Room</a>
+                            <li>
+                                <a href=/Configurations/UserProfile>User Profile</a>
+                            <li>
+                                <a href=# data-toggle=modal data-target=.select-branch-modal>Switch Branch</a>
+                            <li>
+                                <a href="/Security/LockScreen/?Username=tuser2&amp;BranchID=1&amp;Schema=mOTWKsjsWG2RP0SkZB3wnA%3D%3D&amp;ReturnUrl=/Inventory/Inventory">Lock</a>
+                            <li>
+                                <a href=/Security/Logout>Logout</a>
+                        </ul>
+                    <li>
+                        <a href=# class=conn-status>
+                            <i class="fa fa-fw fa-wifi"></i>
+                        </a>
+                    <li class=dropdown>
+                        <a href=# class=dropdown-toggle data-toggle=dropdown title=More>
+                            <span class="glyphicon glyphicon-option-vertical"></span>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-nav">
+                            <li>
+                                <a href="/Logs" target=_blank>Logs</a>
+                            </li>
+                            <li>
+                                <a href="/Home/Changelog">Changelog</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav side-nav menus">
+                        <a href="">
+                            <i class="fa fa-search"></i>
+                            <input id=filter placeholder="Find a panel">
+                        </a>
+                        <li>
+                            <a href="/">
+                                <i class="fas fa-home"></i>
+                                Home
+                            </a>
+                        <li>
+                        <li>
+                            <a href=# data-toggle=collapse data-target=#submenu-5>
+                                        <i class="fas fa-clipboard-list"></i>
+                                        Procurement <i class="fa fa-fw fa-angle-down pull-right"></i>
+                                    </a>
+                                    <ul id=submenu-5 class="collapse sidebarcollapse">
+                                        <li>
+                                            <a href=/Procurement/Suppliers>
+                                                <i class="fas fa-hand-point-right"></i>
+                                                Suppliers
+                                            </a>
+                                        <li>
+                                            <a href=/Procurement/SupplierBills>
+                                                <i class="fas fa-hand-point-right"></i>
+                                                Supplier Bills(A/P Invoices)
+                                            </a>
+                                        <li>
+                                            <a href=/Procurement/PurchaseRequisitionNote>
+                                                <i class="fas fa-hand-point-right"></i>
+                                                Purchase Requisition Note
+                                            </a>
+                                        <li>
+                                            <a href=/Procurement/PurchaseOrder>
+                                                <i class="fas fa-hand-point-right"></i>
+                                                Purchase Orders
+                                            </a>
+                                        <li>
+                                            <a href=/Procurement/GoodsReceivedNotes>
+                                                <i class="fas fa-hand-point-right"></i>
+                                                Goods Received Notes
+                                            </a>
+                                        <li>
+                                            <a href=/Procurement/PaymentVouchers>
+                                                <i class="fas fa-hand-point-right"></i>
+                                                A/P Payment Vouchers
+                                            </a>
+                                        <li>
+                                            <a href=/Procurement/SupplierPrepayments>
+                                                <i class="fas fa-hand-point-right"></i>
+                                                Supplier Prepayments
+                                            </a>
+                                    </ul>
+                        <li>
+                            <a href=# class=reporting-dashboard>
+                                <i class="fas fa-file-alt"></i>
+                                Reports
+                            </a>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <div class=sidebar-control>
+            <button class=sidebar-control-btn title="Toggle side menu">
+                <i class=fas id=side-bar-icon></i>
+            </button>
+        </div>
+        <div id="page-wrapper">
+            <div class=container-fluid>
+                <div class="row marginRow well well-sm">
+                    <div class=col-sm-4>
+                        <h5>
+                            <strong>Demo Hospital</strong>
+                        </h5>
+                    </div>
+                </div>
+                <ol class=breadcrumb id=appBreadcrumb>
+                    <li>
+                        <a href="/">
+                            <i class="fas fa-home"></i>
+                        </a>
+                    <li class=dropdown>
+                        <a href=# data-toggle=dropdown class=dropdown-toggle style=text-decoration:none>
+                            Procurement <b class=caret></b>
+                        </a>
+                        <ul class="dropdown-menu breadcumb-links">
+                            <li>
+                                <a href=/Procurement/PaymentVouchers>
+                                    <small>A/P Payment Vouchers</small>
+                                </a>
+                            <li>
+                                <a href=/Procurement/SupplierCreditNotes>
+                                    <small>Supplier Credit Notes</small>
+                                </a>
+                            <li>
+                                <a href=/Procurement/GoodsReceivedNotes>
+                                    <small>Goods Received Notes</small>
+                                </a>
+                            <li>
+                                <a href=/Procurement/PurchaseOrder>
+                                    <small>Purchase Orders</small>
+                                </a>
+                            <li>
+                                <a href=/Procurement/PurchaseRequisitionNote>
+                                    <small>Purchase Requisition Note</small>
+                                </a>
+                            <li>
+                                <a href=/Procurement/SupplierBills>
+                                    <small>Supplier Bills</small>
+                                </a>
+                        </ul>
+                </ol>
+
+                <div id=divBody class=animate-bottom>
+                    <div class="container-fluid">
+                        <main role="main" class="pb-3">
+                            @RenderBody()
+                        </main>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="chatbox chatbox--tray chatbox--empty">
+        <div class=chatbox__title>
+            <h5>
+                <a href=# id=nameChat>Chat</a>
+            </h5>
+            <button class=chatbox__title__tray>
+                <span></span>
+            </button>
+        </div>
+        <div class=chatbox__body></div>
+        <div class=chatbox__credentials>
+            <div class=list-group id=connectedUsers></div>
+        </div>
+        <div class="input-group chatbox__message">
+            <input id=btn-input class="form-control input-sm" placeholder="Write your message here...">
+            <span class=input-group-btn>
+                <button class="btn btn-primary btn-sm" id=btn-chat>
+                    <i class="glyphicon glyphicon-send"></i>
+                </button>
+            </span>
+        </div>
+    </div>
+
+
+    @await Html.PartialAsync("./PartialViews/_ReportsAccess")
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js?v=CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo"></script>
+    <script>
+        $(document).ready(function () {
+            $("#btnSignInToRoom").text('Sign Out');
+            $('#RoomUserStatus').val(UserRoomStatus);
+            $('#btnCloseModal').show();
+            $('#RoomUserStatus').prop('disabled', false);
+        });
+    </script>
+    <script>
+        window.onload = function () {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("divBody").style.display = "block";
+        };
+    </script>
+    <script src="~/js/signalr/signalr.min.js?v=aNSbXaEA6wcVsUTxsuF1mI-mKauMNEMkhXShRZaQMnE" defer></script>
+    <script src="~/js/main.min.js?v=FGdNIVyQp87KxSZVvrK9dunmd0HJo5hCDmHZAX_FxeE" defer></script>
+    <script>
+        const GuideLink = 'Inventory';
+    </script>
+    <script>
+        EnterSubmitsFormsOnThisPage = true;
+    </script>
+    <script src="~/js/quagga/quagga.min.js?v=JDVyLQRqvRSTL_6WaPud93JXpfEdW11zwjqhoNgkGXc" defer></script>
+    <script src="~/js/bacodescanner.js?v=PvSeFZtOSKE3EkUpoOEz49wl2jH-BwFaW76RYtqNnbY" defer></script>
+    <script src="~/js/inventory/inventory.min.js?v=0-WIF2KD19xgySOGzePhFkwCdeO5lAsPPOmxNVDMvk4" defer></script>
+    <script>
+        $(function () {
+            $.contextMenu({
+                selector: '#body',
+                trigger: 'right',
+                autoHide: true,
+                zIndex: 9999,
+                reposition: false,
+                callback: function (key, options) {
+                    switch (key) {
+                        case 'addshortcut':
+                            $('.select-shortcuts-modal').modal('toggle');
+                            break;
+                        case 'back':
+                            window.history.back();
+                            break;
+                        case 'forward':
+                            window.history.forward();
+                            break;
+                        case 'refresh':
+                            if (typeof ReloadPage === "function") {
+                                ReloadPage();
+                            }
+                            break;
+                        case 'clear':
+                            if (typeof ClearData === "function") {
+                                ClearData();
+                            }
+                            break;
+                        case 'copy':
+                            if (window.getSelection) {
+                                clipBoard = window.getSelection().toString();
+                            } else if (document.selection && document.selection.type != "Control") {
+                                clipBoard = document.selection.createRange().text;
+                            }
+                            if (!navigator.clipboard) {
+                                document.execCommand("copy");
+                            } else {
+                                navigator.clipboard.writeText(clipBoard).then(function () {
+                                    ShowToast('copied');
+                                }, function (err) {
+                                    console.error('Could not copy text: ', err);
+                                });
+                            }
+                            break;
+                        case 'paste':
+                            if (!navigator.clipboard) {
+                                if ($focused !== undefined) {
+                                    $focused.val(clipBoard);
+                                }
+                                document.execCommand("paste");
+                            } else {
+                                navigator.clipboard.readText().then(clipText => {
+                                    if ($focused !== undefined) {
+                                        $focused.val(clipText);
+                                    }
+                                }
+                                );
+                            }
+                            break;
+                        case 'diagnose':
+                            DiagnoseInventory();
+                            break;
+                    }
+                },
+                items: {
+                    "refresh": {
+                        name: "Refresh",
+                        icon: "fas fa-sync-alt"
+                    },
+                    "back": {
+                        name: "Back",
+                        icon: "fas fa-arrow-left"
+                    },
+                    "forward": {
+                        name: "Forward",
+                        icon: "fas fa-arrow-right"
+                    },
+                    "clear": {
+                        name: "Clear",
+                        icon: "delete"
+                    },
+                    "sep0": "---------",
+                    "copy": {
+                        name: "Copy",
+                        icon: "copy"
+                    },
+                    "paste": {
+                        name: "Paste",
+                        icon: "paste"
+                    },
+                    "sep1": "---------",
+                    'diagnose': {
+                        'name': 'Diagnose Inventory',
+                        icon: 'fab fa-autoprefixer'
+                    },
+                    'sep3': '---------',
+                    "quit": {
+                        name: "Quit",
+                        icon: function () {
+                            return 'context-menu-icon context-menu-icon-quit';
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+    <div style=size:auto;margin:0 id=silent-print hidden></div>
+    <link rel=stylesheet href="~/css/assets.min.css?v=pC99z4nR8ke9vhJ9o1QGU1oJz2MSCaHTJvXg3_QP3Sc">
+    <link rel=stylesheet media=print href="~/css/print.min.css?v=rrvfSTNV5DvKq8zWu0XF8M-acQR9lm0CSnecNFERf3U">
+    <script src="~/lib/modernizr/modernizr.js?v=xMx8CS2wxOLN9v0agX9CD_alyVNuh7PE-_SrUqGaRao"></script>
+    <script>
+        function addCSS(filename) {
+            let head = document.getElementsByTagName('head')[0];
+            let style = document.createElement('link');
+            style.href = filename;
+            style.type = 'text/css';
+            style.rel = 'stylesheet';
+            head.append(style);
+        }
+        if (!Modernizr.inputtypes['datetime-local']) {
+            addCSS("/lib/datetimepicker/jquery.datetimepicker.css");
+            $.getScript("/lib/datetimepicker/jquery.datetimepicker.js", function () {
+                $('input[type=datetime-local]').datetimepicker({
+                    value: this,
+                    step: 1
+                });
+            });
+        }
+    </script>
+    <script>
+        'serviceWorker' in navigator && navigator.serviceWorker.register('/serviceworker', {
+            scope: '/'
+        })
+    </script>
+
+</body>
+@await RenderSectionAsync("Scripts", required: false)
+</html>

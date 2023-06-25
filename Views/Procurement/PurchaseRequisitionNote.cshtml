@@ -1,0 +1,145 @@
+﻿<div class=row>
+                                    <div class="panel panel-default">
+                                        <div class=panel-heading>
+                                            <h5 class=panel-title>Purchase Requisition Note</h5>
+                                        </div>
+                                        <div class=panel-body>
+                                            <div class=row>
+                                                <div class="col-md-9 content-left">
+                                                    <div class=row>
+                                                        <form method=post id=PRNForm>
+                                                            <div class=col-sm-4>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Purchase Requisition Note No</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" readonly type=number data-val=true data-val-required="The PRNID field is required." id=PurchaseRequisitionNote_PRNID name=PurchaseRequisitionNote.PRNID>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Storage Location</small>
+                                                                    </label>
+                                                                    <select class="form-control input-sm" required data-val=true data-val-required="The StorageLocationID field is required." id=PurchaseRequisitionNote_StorageLocationID name=PurchaseRequisitionNote.StorageLocationID>
+                                                                        <option></option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Created By</small>
+                                                                    </label>
+                                                                    <select class="form-control input-sm" disabled data-val=true data-val-required="The CreatedBySysUID field is required." id=PurchaseRequisitionNote_CreatedBySysUID name=PurchaseRequisitionNote.CreatedBySysUID>
+                                            <option value=0></option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <div class=col-sm-4>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>DateTime Created</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" readonly type=datetime-local data-val=true data-val-required="The DateTimeCreated field is required." id=PurchaseRequisitionNote_DateTimeCreated name=PurchaseRequisitionNote.DateTimeCreated>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>Authorized By</small>
+                                                                    </label>
+                                                                    <select class="form-control input-sm" disabled data-val=true data-val-required="The AuthorizedBySysUID field is required." id=PurchaseRequisitionNote_AuthorizedBySysUID name=PurchaseRequisitionNote.AuthorizedBySysUID>
+                                            <option value=0></option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class=form-group>
+                                                                    <label>
+                                                                        <small>DateTime Authorized</small>
+                                                                    </label>
+                                                                    <input class="form-control input-sm" readonly type=datetime-local data-val=true data-val-required="The DateTimeAuthorized field is required." id=PurchaseRequisitionNote_DateTimeAuthorized name=PurchaseRequisitionNote.DateTimeAuthorized>
+                                                                </div>
+                                                            </div>
+                                                            <div class=col-sm-4>
+                                                                <div class=checkbox>
+                                                                    <label class=checkbox>
+                                                                        <input type=checkbox id=IsAuthorized disabled>Is Authorized 
+                                                                    </label>
+                                                                </div>
+                                                                <div class=checkbox>
+                                                                    <label class=checkbox>
+                                                                        <input type=checkbox id=CommittedToStock disabled>Committed To Stock 
+                                                                    </label>
+                                                                </div>
+                                                                <div id=updateprn hidden>
+                                                                    <div class="btn-group pull-right">
+                                                                        <button id=btnupdateprn class="btn btn-success btn-xs ladda-button" data-style=expand-right data-size=s disabled>Update</button>
+                                                                        <a id=btnCreateNewPRN class="btn btn-primary btn-xs">New</a>
+                                                                    </div>
+                                                                </div>
+                                                                <div id=addprn>
+                                                                    <button id=btnaddprn class="btn btn-success btn-xs pull-right ladda-button" data-style=expand-right data-size=s>Save</button>
+                                                                </div>
+                                                            </div>
+                                                            <input name=__RequestVerificationToken type=hidden value=CfDJ8It5D1qqI4lBjCCzFnB6Cerdjhz1UGH0mBDJd7BvYRksr3T_v2K1Y0Q7xtU3b3Fj3I_-64zn1YIGGYJKUlC09x4bs3k9mCzy2bzVZlr3ZhQvmKzNPXIDEdY8zpQCiFjYBHBX1L_BNVrIkGzKJBuATO1Dl_Gzv1RXREidpQh7b6iFu6fbgkbl1zx0yTIT8cfSiA>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                                <div class=col-md-3>
+                                                    <div class="btn-group-vertical btn-group-sm pull-right">
+                                                        <button class="btn btn-primary" id=btnPrnItems>Purchase Requisition Note Items</button>
+                                                        <button class="btn btn-default" id=btnprnreport>View Purchase Requisition Note Report</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=panel-heading>
+                                            <h5 class=panel-title>View: Purchase Requisition Notes</h5>
+                                        </div>
+                                        <div class=table-responsive id=no-more-tables style="min-height: 48vh">
+                                            <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=purchaserequisitionnotestable>
+                                                <thead class=cf>
+                                                    <tr>
+                                                        <th>
+                                                            <strong>PRN No</strong>
+                                                        <th>
+                                                            <strong>DateTime Created</strong>
+                                                        <th>
+                                                            <strong>Created By</strong>
+                                                        <th>
+                                                            <strong>Storage Location</strong>
+                                                        <th>
+                                                            <strong>Department</strong>
+                                                            <tbody>
+                                            </table>
+                                        </div>
+                                        <div class=panel-footer>
+                                            <div class="row no-gutter">
+                                                <div class=col-md-9>
+                                                    <form class=form-inline method=post id=FilterForm>
+                                                        <div class=form-group>
+                                                            <label for=StatusFlag>
+                                                                <small>View: </small>
+                                                            </label>
+                                                            <select class="form-control input-sm" id=StatusFlag>
+                                    <option value=0>Pending</option>
+                                    <option value=1>Authorized</option>
+                                    <option value=2>LPO Generated</option>
+                                    <option value=3>All</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=from>
+                                                                <small>Between </small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" id=from>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=to>
+                                                                <small>And </small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" id=to>
+                                                        </div>
+                                                        <button class="btn btn-info btn-xs ladda-button" id=btnViewFilters data-style=expand-right data-size=s>View</button>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8It5D1qqI4lBjCCzFnB6Cerdjhz1UGH0mBDJd7BvYRksr3T_v2K1Y0Q7xtU3b3Fj3I_-64zn1YIGGYJKUlC09x4bs3k9mCzy2bzVZlr3ZhQvmKzNPXIDEdY8zpQCiFjYBHBX1L_BNVrIkGzKJBuATO1Dl_Gzv1RXREidpQh7b6iFu6fbgkbl1zx0yTIT8cfSiA>
+                                                    </form>
+                                                </div>
+                                                <div class=col-md-3></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>

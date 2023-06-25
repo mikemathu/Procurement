@@ -1,0 +1,164 @@
+﻿<div class=row>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading clearfix">
+                                            <h5 class=panel-title>
+                                                Supplier Prepayment
+                                                <div class="btn-group pull-right">
+                                                    <button class="btn btn-info btn-xs dropdown-toggle" type=button data-toggle=dropdown aria-haspopup=true aria-expanded=false>
+                                                        Actions <span class=caret></span>
+                                                    </button>
+                                                    <ul class=dropdown-menu>
+                                                        <li>
+                                                            <a href=javascript:AllocatePrepayment()>
+                                                                <span class=action-primary>Allocate Prepayment</span>
+                                                            </a>
+                                                        <li>
+                                                            <a href=javascript:PrepaymentAllocations()>Prepayment Allocations</a>
+                                                        <li>
+                                                            <a href=javascript:PrepaymentRefunds()>Prepayment Refunds</a>
+                                                        <li>
+                                                            <a href=javascript:CancelPrepayment()>
+                                                                <span class=action-warning>Cancel Prepayment</span>
+                                                            </a>
+                                                        <li role=separator class=divider>
+                                                        <li>
+                                                            <a href=javascript:PrepaymentSummaryReport()>Prepayment Summary</a>
+                                                    </ul>
+                                                </div>
+                                            </h5>
+                                        </div>
+                                        <div class=panel-body>
+                                            <div class=row>
+                                                <form method=post id=SupplierPrepaymentForm>
+                                                    <input id=SupplierPrepaymentID hidden>
+                                                    <div class=col-sm-4>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Supplier</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" style=width:100% id=SupplierID required></select>
+                                                        </div>
+                                                        <payment-mode data-id=PaymentModeID></payment-mode>
+                                                    </div>
+                                                    <div class=col-sm-4>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Reference</small>
+                                                            </label>
+                                                            <textarea type=text class="form-control input-sm" id=Reference required></textarea>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Paid On</small>
+                                                            </label>
+                                                            <input type=datetime-local step=1 class="form-control input-sm" id=DateTimePaid required>
+                                                        </div>
+                                                    </div>
+                                                    <div class=col-sm-4>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Paid By</small>
+                                                            </label>
+                                                            <input class="form-control input-sm" id=PaidBy required>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label>
+                                                                <small>Prepayment Amount</small>
+                                                            </label>
+                                                            <input type=number class="form-control input-sm" step=any id=PrepaymentAmount required>
+                                                        </div>
+                                                        <div class=row>
+                                                            <div class=col-md-12>
+                                                                <table class="table-condensed table-borderless table-responsive compact">
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td>
+                                                                                <strong>Amount Used: </strong>
+                                                                            <td>
+                                                                                <span id=txtAmountUsed></span>
+                                                                                <tr>
+                                                                                    <td>
+                                                                                        <strong>Amount Refunded: </strong>
+                                                                                    <td>
+                                                                                        <span id=txtAmountRefunded></span>
+                                                                                        <tr>
+                                                                                            <td>
+                                                                                                <strong>Balance: </strong>
+                                                                                            <td>
+                                                                                                <span id=txtBalance></span>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <div id=updateprep hidden>
+                                                            <a id=btnCreateNewPrepayment class="btn btn-primary btn-xs pull-right">New</a>
+                                                        </div>
+                                                        <div id=addprep>
+                                                            <button class="btn btn-primary btn-xs pull-right ladda-button" data-style=expand-right data-size=s id=btnSavePrepayment>Save Prepayment</button>
+                                                        </div>
+                                                    </div>
+                                                    <input name=__RequestVerificationToken type=hidden value=CfDJ8It5D1qqI4lBjCCzFnB6Ceo7gw0L0KXopOY8RGFJulplRpYyp8cIvtOnerdizjiJzlkOvMNrTr_asjBE74mr1ZJA2PsLamitAOhnFDmO5SNBCmslB2AjCwLs5UxQAoOpSSgXb_2ncC57iAo6RgfzbyYqikuOhQWxyYXpDYYwKGO0mjOu_8liVxhTGbnVi70rZQ>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class=panel-heading>
+                                            <h6 class=panel-title>View: Supplier Prepayments</h6>
+                                        </div>
+                                        <div class=table-responsive id=no-more-tables style="min-height: 48vh">
+                                            <table class="col-md-12 table-striped table-condensed table-bordered cf compact" width=100% id=prepaymentstable>
+                                                <thead class=cf>
+                                                    <tr>
+                                                        <th>
+                                                            <strong>No</strong>
+                                                        <th>
+                                                            <strong>Supplier</strong>
+                                                        <th>
+                                                            <strong>Payment Mode</strong>
+                                                        <th>
+                                                            <strong>Paid On</strong>
+                                                        <th>
+                                                            <strong>Status</strong>
+                                                        <th>
+                                                            <strong>Amount</strong>
+                                                        <th>
+                                                            <strong>Used</strong>
+                                                        <th>
+                                                            <strong>Refunded</strong>
+                                                        <th>
+                                                            <strong>Balance</strong>
+                                                            <tbody>
+                                            </table>
+                                        </div>
+                                        <div class=panel-footer>
+                                            <div class=row>
+                                                <div class=col-md-12>
+                                                    <form class=form-inline method=post id=FilterForm>
+                                                        <div class=form-group>
+                                                            <label for=Status>
+                                                                <small>Status</small>
+                                                            </label>
+                                                            <select class="form-control input-sm" id=Status required>
+                                                                <option value=0>Inactive</option>
+                                <option value=1 selected>Active</option>
+                                <option value=2>Cancelled</option>
+                                                            </select>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=dateFrom>
+                                                                <small>From: </small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" id=dateFrom>
+                                                        </div>
+                                                        <div class=form-group>
+                                                            <label for=dateTo>
+                                                                <small>To: </small>
+                                                            </label>
+                                                            <input type=date class="form-control input-sm" id=dateTo>
+                                                        </div>
+                                                        <button class="btn btn-info btn-xs">View</button>
+                                                        <input name=__RequestVerificationToken type=hidden value=CfDJ8It5D1qqI4lBjCCzFnB6Ceo7gw0L0KXopOY8RGFJulplRpYyp8cIvtOnerdizjiJzlkOvMNrTr_asjBE74mr1ZJA2PsLamitAOhnFDmO5SNBCmslB2AjCwLs5UxQAoOpSSgXb_2ncC57iAo6RgfzbyYqikuOhQWxyYXpDYYwKGO0mjOu_8liVxhTGbnVi70rZQ>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </div>
